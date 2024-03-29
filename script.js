@@ -29,8 +29,6 @@ let oldImage = null;
 let oldTitle = null;
 let oldDesc = null;
 
-
-//Funções de busca
 async function fetchData() {
     try {
         const response = await fetch(`${url}/post/`, {
@@ -82,7 +80,6 @@ async function getRecentes(unless) {
     }
 }
 
-//Atualizar
 async function atualizarPostAtual(title) {
     try {
         let post = await getPost(postAtual.title);
@@ -107,12 +104,11 @@ async function atualizarPostAtual(title) {
 
 }
 
-// Função para atualizar o post no banco de dados com as novas informações
 async function atualizarPost() {
   try {
     const title = document.querySelector('.descriptionPost .titlePost');
     const description = document.querySelector('.descriptionPost .contentPost');
-    // Atualiza o post no banco de dados usando as informações armazenadas em postAtual
+
     await fetch(`${url}/post/${postAtual.id}`, {
       method: 'PUT',
       headers: {
@@ -124,7 +120,6 @@ async function atualizarPost() {
       })
     });
 
-    // Atualiza a imagem do post, se houver alterações
     if (oldImage !== postAtual.image) {
         
         const formData = new FormData();
@@ -138,7 +133,6 @@ async function atualizarPost() {
 
     }
 
-    // Atualiza o conteúdo da página com o post atualizado
     await updateContent();
     alert('Post atualizado com sucesso!');
     console.log(postAtual.id, postAtual.title);
@@ -169,12 +163,10 @@ async function deletarPost() {
     }
 }
   
-
-// Função para lidar com a seleção de uma nova imagem para o post
 function handleImageSelection(input) {
   const arquivo = input.files[0];
   if (arquivo) {
-    oldImage = arquivo; // Armazena a nova imagem na variavel
+    oldImage = arquivo; 
     if(input === updateFile){
         const preview = document.getElementById('preview');
         preview.innerHTML = '';
@@ -182,7 +174,7 @@ function handleImageSelection(input) {
         reader.onload = function(event) {
             const img = document.createElement('img');
             img.src = event.target.result;
-            img.style.maxWidth = '200px'; // Define o tamanho máximo da imagem na pré-visualização
+            img.style.maxWidth = '200px'; 
             img.style.borderRadius = '10px'; 
             preview.style.display = 'flex';
             preview.style.justifyContent = 'center';
@@ -211,7 +203,6 @@ async function updateContent() {
         postAtual.description = postExibido.description;
         postAtual.image = postExibido.Fotos[0];
     
-        // Atualiza os elementos HTML com as informações do post
         const titleElement = document.querySelector('.descriptionPost h1');
         titleElement.textContent = postAtual.title;
     
@@ -221,7 +212,6 @@ async function updateContent() {
         const imageElement = document.querySelector('.descriptionPost img');
         imageElement.setAttribute('src', postAtual.image.url);
     
-        // Atualiza os elementos HTML com os títulos dos posts recentes
         const h2Elements = document.querySelectorAll('.postsrecents h2.article');
         recente.slice(1).forEach((element, index) => {
           h2Elements[index].textContent = element.title;
@@ -255,10 +245,6 @@ function handleTextEdit(visible = true) {
     content.contentEditable = visible;
 }
 
-
-
-
-
 inputFile.setAttribute("onchange", "handleImageSelection(inputFile)");
 updateFile.setAttribute("onchange", "handleImageSelection(updateFile)");
   
@@ -267,7 +253,6 @@ formNewPost.addEventListener('submit', async function(event) {
 
     const titleValue = title.value;
     const publicationValue = publication.value;
-
     const imageValue = inputFile.files?.[0];
     
     if (!titleValue || !publicationValue) {
@@ -328,7 +313,7 @@ h2Elements.forEach((h2) => {
         imagePost.setAttribute('src', next.Fotos[0]['url']);
     
         h2Elements.forEach((element, index) => {
-            element.textContent = nextPosts[index].title; // 
+            element.textContent = nextPosts[index].title;
         });
 
         preview.innerHTML = '';
@@ -361,8 +346,7 @@ confirmButton.addEventListener('click', async () => {
 });
 
 deleteButton.addEventListener('click', () => {
-    deletarPost();
-     
+    deletarPost(); 
 });
 
 updateContent();
