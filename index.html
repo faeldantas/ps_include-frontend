@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PS INCLUDE</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="body">
+    <header class="header">
+      <img
+        class="logo_header"
+        src="./assets/logoHeader.svg"
+        alt="Logo do cabeçalho"
+      />
+    </header>
+
+    <section class="feed">
+      <div class="main">
+        <div class="newPost">
+          <img src="./assets/logoNewPost.svg" alt="Ícone de novo post" />
+          <form class="formNewPost">
+            <div class="texts">
+              <textarea
+                class="title"
+                placeholder="Escreva seu tema..."
+              ></textarea>
+              <textarea
+                class="publication"
+                placeholder="Escreva sua publicação..."
+              ></textarea>
+            </div>
+
+            <div class="buttons">
+              <button id="addImageBtn" class="button1" type="button">
+                Adicionar imagem
+                <img src="./assets/image.svg" alt="Ícone de imagem" />
+              </button>
+              <input type="file" id="addImage"/>
+              <button id="submitBtn" class="button2" type="submit">
+                Publicar
+                <img src="./assets/log-out.svg" alt="Ícone de publicar" />
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="post">
+          <div class="user">
+            <img
+              src="./assets/logoNewPost.svg"
+              class="logoPost"
+              alt="Logo do post"
+            />
+            <div class="username">
+              <h1 class="namePost">Include Jr</h1>
+              <span class="descriptionName"
+                >Dev. web | soluções inovadoras</span
+              >
+            </div>
+          </div>
+          <div class="descriptionPost">
+            <h1 class="titlePost">...</h1>
+            <p class="contentPost">...</p>
+            <img
+              class="postImage"
+              src=""
+              alt="Imagem do post"
+            />
+            <div class="buttons">
+              <button id="deleteBtn">
+                delete
+              </button>
+              <button id="updateImageBtn"class="button1">
+                Editar imagem
+                <img src="./assets/image.svg" alt="Ícone de imagem" />
+              </button>
+              <input type="file" id="updateImage"/>
+              <button id="updateTextBtn" class="button2">
+                Editar Texto
+                <img src="./assets/log-out.svg" alt="Ícone de publicar" />
+              </button>
+              <button id="confirmBtn" class="button3" style="display: none;">
+                Confirmar
+              </button>
+            </div>
+            <div id="preview"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="recent">
+        <div class="recents">
+          <h1 class="titlesection">Ultimas publicações</h1>
+          <div class="postsrecents">
+            <h2 class="article">...</h2>
+            <h2 class="article">...</h2>
+            <h2 class="article">...</h2>
+          </div>
+        </div>
+
+        <h1 class="copyright">Direitos reservados à empresa Include Jr.</h1>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <img src="./assets/logoHeader.svg" alt="Logo do rodapé" />
+      <span class="textFooter">Direitos reservados à empresa Include Jr.</span>
+      <div class="icons">
+        <img src="./assets/mail.svg" alt="Ícone de e-mail" />
+        <img src="./assets/linkedin.svg" alt="Ícone do LinkedIn" />
+        <img src="./assets/instagram.svg" alt="Ícone do Instagram" />
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
