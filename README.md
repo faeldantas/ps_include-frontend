@@ -4,7 +4,7 @@ Este repositório contém o projeto para avaliação.
 
 ## Instruções
 
-Para participar do processo seletivo, siga estas instruções:
+Para ultilizar, siga estas instruções:
 
 1. Clone este repositório para sua máquina local.
 2. Siga as instruções contidas no arquivo README.md para configurar e executar o projeto em sua máquina.
